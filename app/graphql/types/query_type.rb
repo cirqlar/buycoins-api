@@ -11,7 +11,7 @@ module Types
     end
 
     def calculate_price(type:,margin:,exchange_rate:)
-      return CoindeskAPI.calculate_price(type: type, margin: margin, exchange_rate: exchange_rate)
+      return CoindeskApi.calculate_price(type: type, margin: margin, exchange_rate: exchange_rate)
     end
 
     # TODO: remove me

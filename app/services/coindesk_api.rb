@@ -1,7 +1,7 @@
 require 'http'
 require 'json'
 
-class CoindeskAPI
+class CoindeskApi
 
   def self.calculate_price(type:,margin:,exchange_rate:)
     price = get_usd_price().gsub(/[^\d\.]/, '').to_f
