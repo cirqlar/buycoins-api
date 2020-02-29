@@ -1,24 +1,25 @@
-# README
+# BuyCoins API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An API built for a buycoins challenge.
 
-Things you may want to cover:
+It is a GraphQL API with one query: `calculatePrice`
 
-* Ruby version
+Required Parameters:
 
-* System dependencies
+* type: Either "buy" or "sell" (without quotes). Dictates whether the margin is added or subtracted from the price.
+* margin: Float representing the percentage margin
+* exchange_rate: Float representing the NGN/USD exchange rate (i.e 1 USD in NGN)
 
-* Configuration
+Example request and response:
+```
+query {
+  calculatePrice(type: buy, margin: 1.20, exchangeRate: 100) 
+}
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Response:
+{
+  "data": {
+    "calculatePrice": 875381.85196
+  }
+}
+```
