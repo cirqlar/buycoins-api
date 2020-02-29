@@ -1,5 +1,5 @@
 module Types
-  class PriceType < Types::BaseEnum
+  class ActionType < Types::BaseEnum
     description "All performable actions"
     
     value("buy", description: "Add computed value")

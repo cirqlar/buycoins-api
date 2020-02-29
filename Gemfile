@@ -29,6 +29,7 @@ gem 'sprockets', '~> 3'
 
 gem 'graphql'
 gem 'graphiql-rails'
+gem 'http'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
