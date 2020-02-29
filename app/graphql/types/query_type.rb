@@ -14,11 +14,6 @@ module Types
       return CoindeskApi.calculate_price(type: type, margin: margin, exchange_rate: exchange_rate)
     end
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
-    end
+  
   end
 end
