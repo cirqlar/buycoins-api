@@ -1,5 +1,6 @@
 require 'http'
 require 'json'
+require 'exceptions'
 
 class CoindeskApi
 
@@ -13,15 +14,19 @@ class CoindeskApi
     elsif (type == "buy")
       price += price_margin
     else 
-      return nil
+      raise Exceptions::InvalidArgument
     end
     
-    return price * exchange_rate
+    return price * exchange_rate.to_f
   end
   
   private_class_method def self.get_usd_price
-    response = HTTP.get("https://api.coindesk.com/v1/bpi/currentprice/USD.json");
-    response_json = JSON.parse(response.to_s)
-    return response_json['bpi']['USD']['rate_float'].to_f
+    begin
+      response = HTTP.get("https://api.coindesk.com/v1/bpi/currentprice/USD.json");
+      response_json = JSON.parse(response.to_s)
+      return response_json['bpi']['USD']['rate_float'].to_f
+    rescue
+      raise Exceptions::InternalServerError
+    end
   end
 end
