@@ -4,7 +4,7 @@ module Types
     # They will be entry points for queries on your schema.
 
     field :calculate_price, Float, null: false do
-      argument :type, String, required: true
+      argument :type, Types::PriceType, required: true
       argument :margin, Float, required: true
       argument :exchange_rate, Float, required: true
     end
