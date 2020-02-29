@@ -5,6 +5,8 @@ module Types
     # They will be entry points for queries on your schema.
 
     field :calculate_price, Float, null: false do
+      description "Calculate new price after margin in NGN"
+
       argument :type, Types::ActionType, required: true
       argument :margin, Float, required: true
       argument :exchange_rate, Float, required: true
